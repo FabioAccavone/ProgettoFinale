@@ -31,7 +31,7 @@ function login(){
             if(data.ruolo === "ADMIN"){
                 window.location.href = "admin";
             }else{
-                window.location.href = "viaggi.html";
+                window.location.href = "home.html";
             }
         })
     .catch(error=>alert(error.message))

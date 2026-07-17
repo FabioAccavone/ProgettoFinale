@@ -4,31 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    
-
 </head>
 <body>
+    
+    <div id="navbar"></div>
 
-    <div class="container">
+    <!-- RICERCA -->
+        <div class="ricerca">
+            <h2>Cerca viaggi</h2>
 
-        <header>
+            <input type="text" id="filtroLuogo" placeholder="Luogo">
+            <input type="text" id="filtroFormula" placeholder="Formula">
+            <input type="date" id="filtroData">
 
-            <h1>Agenzia Viaggi</h1>
+            <input type="button" value="Cerca" onclick="cercaViaggi()">
+            <input type="button" value="Mostra tutti" onclick="visualizzaTutti()">
+        </div>
 
-            <input type="button" value="Logout" onclick="logout()">
-
-        </header>
-
-        
-
-        <nav>
-            <ul>
-                <li><a href="">Prenota ora</a></li>
-                <li><a href="">SezioneAdmin</a></li>
-            </ul>
-        </nav>
-        
+        <!-- RISULTATI -->
         <div class="risultati">
             <h2>Viaggi disponibili</h2>
 
@@ -41,7 +34,7 @@
                         <th>Ritorno</th>
                         <th>Formula</th>
                         <th>Costo</th>
-                        <th>Posti disponibili</th>
+                        <th>Posti</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -51,7 +44,7 @@
             </table>
         </div>
 
-    </div>
+        <script src="../js/navbar.js"></script>
     
 </body>
 </html>
