@@ -1,50 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Viaggi</title>
+
+    <script src="../js/navbarAuth.js" defer></script>
+
 </head>
+
 <body>
-    
+
     <div id="navbarAuthenticated"></div>
 
-    <!-- RICERCA -->
-        <div class="ricerca">
-            <h2>Cerca viaggi</h2>
+    <main>
 
-            <input type="text" id="filtroLuogo" placeholder="Luogo">
-            <input type="text" id="filtroFormula" placeholder="Formula">
-            <input type="date" id="filtroData">
+        <h1>Viaggi disponibili</h1>
 
-            <input type="button" value="Cerca" onclick="cercaViaggi()">
-            <input type="button" value="Mostra tutti" onclick="visualizzaTutti()">
-        </div>
+        <section class="ricerca">
 
-        <!-- RISULTATI -->
-        <div class="risultati">
-            <h2>Viaggi disponibili</h2>
+            <h2>Ricerca</h2>
 
-            <table id="tabellaViaggi">
-                <thead>
-                    <tr>
-                        <th>Codice</th>
-                        <th>Luogo</th>
-                        <th>Partenza</th>
-                        <th>Ritorno</th>
-                        <th>Formula</th>
-                        <th>Costo</th>
-                        <th>Posti</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="body_viaggi">
-                    <!-- righe generate da JS -->
-                </tbody>
-            </table>
-        </div>
+            <label for="tipoRicerca">Ricerca per:</label>
 
-        <script src="../js/navbarAuth.js"></script>
-    
+            <select id="tipoRicerca" onchange="cambiaFiltro()">
+
+                <option value="">-- Seleziona --</option>
+
+                <option value="luogo">Luogo</option>
+
+                <option value="formula">Formula</option>
+
+                <option value="data">Data di partenza</option>
+
+            </select>
+
+            <br><br>
+
+            <!-- Luogo -->
+
+            <div id="ricercaLuogo" style="display:none;">
+
+                <input
+                    type="text"
+                    id="filtroLuogo"
+                    placeholder="Inserisci il luogo">
+
+            </div>
+
+            <!-- Formula -->
+
+            <div id="ricercaFormula" style="display:none;">
+
+                <select id="filtroFormula">
+
+                    <option value="">Seleziona formula</option>
+
+                    <option value="SOLO_PERNOTTAMENTO">Solo pernottamento</option>
+
+                    <option value="BED_AND_BREAKFAST">Bed & Breakfast</option>
+
+                    <option value="MEZZA_PENSIONE">Mezza pensione</option>
+
+                    <option value="PENSIONE_COMPLETA">Pensione completa</option>
+
+                    <option value="ALL_INCLUSIVE">All Inclusive</option>
+
+                </select>
+
+            </div>
+
+            <!-- Data -->
+
+            <div id="ricercaData" style="display:none;">
+
+                <input
+                    type="date"
+                    id="filtroData">
+
+            </div>
+
+            <br>
+
+            <button onclick="cercaViaggi()">
+
+                Cerca
+
+            </button>
+
+            <button onclick="visualizzaTutti()">
+
+                Mostra tutti
+
+            </button>
+
+        </section>
+
+        <hr>
+
+        <section id="contenitoreViaggi">
+
+        </section>
+
+    </main>
+
+    <script src="../js/ricercaViaggi.js" defer></script>
 </body>
+
 </html>

@@ -55,4 +55,8 @@ public class PrenotazioneService {
     public List<Prenotazione> getAll(){
         return prenotazioneRepo.findAll();
     }
+
+    public List<Prenotazione> getByUserId(Long id){
+        return prenotazioneRepo.findByUserId(id);
+    }
 }

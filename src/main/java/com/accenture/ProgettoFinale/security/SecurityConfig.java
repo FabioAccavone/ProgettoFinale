@@ -61,7 +61,7 @@ public class SecurityConfig {
 
         // Tutti i GET dei viaggi
         .requestMatchers(HttpMethod.GET, "/viaggi/**")
-        .hasAnyRole("ADMIN")
+        .hasAnyRole("ADMIN","USERS")
 
         // ------------------------
         // PRENOTAZIONI

@@ -1,70 +1,303 @@
-//getAll
-function visualizzaTutti(){
+const API = "http://localhost:8080";
 
-    const body_viaggi = document.getElementById("body_viaggi")
+window.onload = function () {
 
-    body_viaggi.innerHTML = ""
+    visualizzaTutti();
 
-    fetch(BASE_URL + "/viaggi", {
-        method: "GET",
-        headers:{
-            'Authorization': 'Bearer ' + localStorage.getItem("token"), //recupero dal localStorage il token che avevo salvato
-            'Content-Type': 'application/json;charset=utf-8'
-        }
-    })
-    .then(res=>{
-        if(!res.ok) {
-            throw new Error("Errore nel caricamento dei viaggi")
-        }
-        return res.json()
-    })
-    .then(viaggi=>viaggi.forEach(element => {
+};
 
-        const riga = document.createElement("tr") //creo una riga
+//====================================
+// CAMBIO FILTRO
+//====================================
 
-                //creo le celle che conterranno i dati
-                const td_codice = document.createElement("td")
-                const td_luogo = document.createElement("td")
-                const td_partenza = document.createElement("td")
-                const td_ritorno = document.createElement("td")
-                const td_formula = document.createElement("td")
-                const td_costo = document.createElement("td")
-                const td_posti = document.createElement("td")
+function cambiaFiltro() {
 
-                //inserisco i dati nella tabella
-                td_codice.textContent = element.codice
-                td_luogo.textContent = element.luogo
-                td_partenza.textContent = element.partenza
-                td_ritorno.textContent = element.ritorno
-                td_formula.textContent = element.formula
-                td_costo.textContent = element.costo
-                td_posti.textContent = element.posti
+    document.getElementById("ricercaLuogo").style.display = "none";
+    document.getElementById("ricercaFormula").style.display = "none";
+    document.getElementById("ricercaData").style.display = "none";
 
-                //inserisco nella riga
-                riga.appendChild(td_codice)
-                riga.appendChild(td_luogo)
-                riga.appendChild(td_partenza)
-                riga.appendChild(td_ritorno)
-                riga.appendChild(td_formula)
-                riga.appendChild(td_costo)
-                riga.appendChild(td_posti)
+    const tipo = document.getElementById("tipoRicerca").value;
 
-                //inserisco la riga nella tabella
-                body_viaggi.appendChild(riga)
-        
-    }))
+    if (tipo === "luogo") {
+
+        document.getElementById("ricercaLuogo").style.display = "block";
+
+    }
+
+    if (tipo === "formula") {
+
+        document.getElementById("ricercaFormula").style.display = "block";
+
+    }
+
+    if (tipo === "data") {
+
+        document.getElementById("ricercaData").style.display = "block";
+
+    }
+
 }
 
-function cercaViaggi(){
+//====================================
+// MOSTRA TUTTI
+//====================================
 
-    const luogo = document.getElementById("filtroLuogo").value
-    const formula = document.getElementById("filtroFormula").value
-    const data = document.getElementById("filtroData").value
+function visualizzaTutti() {
 
-    const body_viaggi = document.getElementById("body_viaggi")
+    fetch(API + "/viaggi", {
 
-    body_viaggi.innerHTML= ""
+        method: "GET",
 
-    //capire come filtrare la ricerca
-    
+        headers: {
+
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+
+    })
+        .then(res => {
+
+            if (!res.ok)
+                throw new Error("Errore");
+
+            return res.json();
+
+        })
+        .then(viaggi => mostraViaggi(viaggi))
+        .catch(err => console.log(err));
+
+}
+
+//====================================
+// CERCA
+//====================================
+
+function cercaViaggi() {
+
+    const tipo = document.getElementById("tipoRicerca").value;
+
+    let url = "";
+
+    switch (tipo) {
+
+        case "luogo":
+
+            const luogo = document.getElementById("filtroLuogo").value.trim();
+
+            if (luogo === "") {
+
+                alert("Inserisci un luogo.");
+
+                return;
+
+            }
+
+            url = API + "/viaggi/luogo/" + encodeURIComponent(luogo);
+
+            break;
+
+
+        case "formula":
+
+            const formula = document.getElementById("filtroFormula").value;
+
+            if (formula === "") {
+
+                alert("Seleziona una formula.");
+
+                return;
+
+            }
+
+            url = API + "/viaggi/formula/" + formula;
+
+            break;
+
+
+        case "data":
+
+            const data = document.getElementById("filtroData").value;
+
+            if (data === "") {
+
+                alert("Seleziona una data.");
+
+                return;
+
+            }
+
+            url = API + "/viaggi/data_partenza/" + data;
+
+            break;
+
+
+        default:
+
+            alert("Seleziona il tipo di ricerca.");
+
+            return;
+
+    }
+
+    fetch(url, {
+
+        method: "GET",
+
+        headers: {
+
+            "Authorization": "Bearer " + localStorage.getItem("token")
+
+        }
+
+    })
+        .then(res => {
+
+            if (!res.ok)
+                throw new Error("Errore nella ricerca");
+
+            return res.json();
+
+        })
+        .then(viaggi => mostraViaggi(viaggi))
+        .catch(err => console.log(err));
+
+}
+
+//====================================
+// CREA LE CARD
+//====================================
+
+function mostraViaggi(listaViaggi) {
+
+    const contenitore = document.getElementById("contenitoreViaggi");
+
+    contenitore.innerHTML = "";
+
+    if (listaViaggi.length === 0) {
+
+        contenitore.innerHTML = "<h2>Nessun viaggio trovato.</h2>";
+
+        return;
+
+    }
+
+    listaViaggi.forEach(viaggio => {
+
+        const card = document.createElement("div");
+
+        card.className = "cardViaggio";
+
+        card.innerHTML = `
+
+            <h2>${viaggio.luogo}</h2>
+
+            <p><strong>Codice:</strong> ${viaggio.id}</p>
+
+            <p><strong>Partenza:</strong> ${viaggio.dataPartenza}</p>
+
+            <p><strong>Ritorno:</strong> ${viaggio.dataRitorno}</p>
+
+            <p><strong>Formula:</strong> ${formattaFormula(viaggio.formula)}</p>
+
+            <p><strong>Costo:</strong> € ${viaggio.costo}</p>
+
+            <p><strong>Posti disponibili:</strong> ${viaggio.postiDisponibili}</p>
+
+            <label>Numero persone</label>
+
+            <input
+                type="number"
+                id="persone-${viaggio.id}"
+                min="1"
+                max="${viaggio.postiDisponibili}"
+                value="1">
+
+            <br><br>
+
+            <button onclick="prenota(${viaggio.id})">
+                Prenota
+            </button>
+
+        `;
+
+        contenitore.appendChild(card);
+
+    });
+
+}
+
+//====================================
+// FORMATTA ENUM
+//====================================
+
+function formattaFormula(formula) {
+
+    return formula
+        .toLowerCase()
+        .replaceAll("_", " ")
+        .replace(/\b\w/g, c => c.toUpperCase());
+
+}
+
+//====================================
+// PRENOTAZIONE
+//====================================
+
+function prenota(idViaggio) {
+
+    const inputPersone = document.getElementById("persone-" + idViaggio);
+
+    const numPersone = Number(inputPersone.value);
+
+    if (numPersone < 1) {
+
+        alert("Inserisci un numero di persone valido.");
+        return;
+
+    }
+
+    const prenotazione = {
+
+        numPersone: numPersone,
+        viaggioId: idViaggio,
+        userId: Number(localStorage.getItem("id"))
+
+    };
+
+    fetch(API + "/prenotazioni", {
+
+        method: "POST",
+
+        headers: {
+
+            "Authorization": "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+
+        },
+
+        body: JSON.stringify(prenotazione)
+
+    })
+    .then(res => {
+
+        if (!res.ok) {
+            throw new Error("Errore durante la prenotazione");
+        }
+
+        return res.json();
+
+    })
+    .then(() => {
+
+        alert("Prenotazione effettuata con successo!");
+
+        // aggiorno i posti disponibili
+        visualizzaTutti();
+
+    })
+    .catch(err => {
+
+        alert(err.message);
+
+    });
+
 }
