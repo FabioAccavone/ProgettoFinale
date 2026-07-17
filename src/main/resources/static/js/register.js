@@ -18,7 +18,7 @@ function registrati(){
     }
 
     //fetch
-    fetch("http://localhost:8080/auth/register", {
+    fetch("http://localhost:8080/auth/registrazione", {
         method: "POST",
         headers:{
             'Content-Type': 'application/json;charset=utf-8'

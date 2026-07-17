@@ -24,14 +24,16 @@ function login(){
     })
     .then(data=>{
             alert("Login effettuato!")
-            localStorage.setItem("token", data.token)
+            localStorage.setItem("token", data.jwt)
             localStorage.setItem("ruolo", data.ruolo) 
+            localStorage.setItem("username", data.username)
+            localStorage.setItem("id", data.id)
             
             //controllo il ruolo
             if(data.ruolo === "ADMIN"){
-                window.location.href = "admin";
+                window.location.href = "admin.html";
             }else{
-                window.location.href = "home.html";
+                window.location.href = "ricercaViaggi.html";
             }
         })
     .catch(error=>alert(error.message))
