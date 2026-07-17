@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- SEZIONE ADMIN -->
+    <div class="admin" id="sezioneAdmin">
+        <h2>Gestione viaggi</h2>
+
+        <form id="formViaggio">
+            <input type="hidden" id="codiceViaggio">
+
+            <input type="text" id="luogo" placeholder="Luogo" required>
+            <input type="date" id="dataPartenza" required>
+            <input type="date" id="dataRitorno" required>
+            <input type="text" id="formula" placeholder="Formula" required>
+            <input type="number" id="costo" placeholder="Costo" step="0.01" required>
+            <input type="number" id="postiDisponibili" placeholder="Posti disponibili" required>
+
+            <input type="button" id="creaViaggio" value="Aggiungi viaggio" onclick="creaViaggio()">
+            <input type="button" id="modificaViaggio" value="Modifica viaggio" onclick="modificaViaggio()">
+            <input type="button" id="cancellaViaggio" value="Elimina viaggio" onclick="cancellaViaggio()">
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <h1>Agenzia Viaggi</h1>
+
+            <input type="button" value="Logout" onclick="logout()">
+
+        </header>
+
+        
+
+        <nav>
+            <ul>
+                <li><a href="">Prenota ora</a></li>
+                <li><a href="">SezioneAdmin</a></li>
+            </ul>
+        </nav>
+        
+        <div class="risultati">
+            <h2>Viaggi disponibili</h2>
+
+            <table id="tabellaViaggi">
+                <thead>
+                    <tr>
+                        <th>Codice</th>
+                        <th>Luogo</th>
+                        <th>Partenza</th>
+                        <th>Ritorno</th>
+                        <th>Formula</th>
+                        <th>Costo</th>
+                        <th>Posti disponibili</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="body_viaggi">
+                    <!-- righe generate da JS -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    
+</body>
+</html>
