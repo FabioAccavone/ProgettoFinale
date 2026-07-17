@@ -1,5 +1,5 @@
 //ADMIN
-function creaViaggio(){
+function aggiungiViaggio(){
             
     //recupero i dati
     const luogo = document.getElementById("luogo").value

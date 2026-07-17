@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    
 
     <div id="navbarAuthenticated"></div>
 
@@ -19,17 +20,36 @@
             <input type="text" id="luogo" placeholder="Luogo" required>
             <input type="date" id="dataPartenza" required>
             <input type="date" id="dataRitorno" required>
-            <input type="text" id="formula" placeholder="Formula" required>
+            
+            <select id="formula">
+
+                    <option value="">Seleziona formula</option>
+
+                    <option value="SOLO_PERNOTTAMENTO">Solo pernottamento</option>
+
+                    <option value="BED_AND_BREAKFAST">Bed & Breakfast</option>
+
+                    <option value="MEZZA_PENSIONE">Mezza pensione</option>
+
+                    <option value="PENSIONE_COMPLETA">Pensione completa</option>
+
+                    <option value="ALL_INCLUSIVE">All Inclusive</option>
+
+                </select>
+
             <input type="number" id="costo" placeholder="Costo" step="0.01" required>
             <input type="number" id="postiDisponibili" placeholder="Posti disponibili" required>
 
-            <input type="button" id="creaViaggio" value="Aggiungi viaggio" onclick="creaViaggio()">
+            <input type="button" id="creaViaggio" value="Aggiungi viaggio" onclick="aggiungiViaggio()">
             <input type="button" id="modificaViaggio" value="Modifica viaggio" onclick="modificaViaggio()">
             <input type="button" id="cancellaViaggio" value="Elimina viaggio" onclick="cancellaViaggio()">
         </form>
     </div>
 
     <script src="../js/navbarAuth.js"></script>
+    <script src="../js/creaViaggio.js"></script>
+    <script src="../js/modificaViaggio.js"></script>
+    <script src="../js/cancellaViaggio.js"></script>
     
 </body>
 </html>
