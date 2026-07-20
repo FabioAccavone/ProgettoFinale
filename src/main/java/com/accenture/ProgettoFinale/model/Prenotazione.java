@@ -34,5 +34,8 @@ public class Prenotazione {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Column(name = "costo_totale")
+    private Double costoTotale;
     
 }
