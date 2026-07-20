@@ -190,8 +190,6 @@ function mostraViaggi(listaViaggi) {
 
             <h2>${viaggio.luogo}</h2>
 
-            <p><strong>Codice:</strong> ${viaggio.id}</p>
-
             <p><strong>Partenza:</strong> ${formattaData(viaggio.dataPartenza)}</p>
 
             <p><strong>Ritorno:</strong> ${formattaData(viaggio.dataRitorno)}</p>
@@ -255,6 +253,7 @@ function formattaData(data) {
 function prenota(idViaggio) {
 
     const inputPersone = document.getElementById("persone-" + idViaggio);
+
 
     const numPersone = Number(inputPersone.value);
 
