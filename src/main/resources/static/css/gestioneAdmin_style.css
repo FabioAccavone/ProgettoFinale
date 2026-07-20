@@ -1,0 +1,77 @@
+div{
+    text-align: center;
+}
+
+form{
+    background: white;
+    padding: 15px;
+    margin: 0 auto;
+    box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
+}
+
+input{
+    padding: 12px 20px;
+    background: white;
+    color: black;
+    border: 1px solid rgba(5, 135, 27, 0.956);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type='button']{
+    padding: 12px 20px;
+    background: rgba(5, 135, 27, 0.956);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type='button']:hover{
+    background: #044927;
+}
+
+select{
+    padding: 12px 20px;
+    background: white;
+    color: black;
+    border: 1px solid rgba(5, 135, 27, 0.956);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h2{
+    text-align: center;
+    color: rgba(5, 135, 27, 0.956);
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+hr{
+    border: 1px solid rgba(5, 135, 27, 0.956);
+    margin: 30px auto;
+    box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
+}
+
+#elencoViaggiAdmin{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cardViaggio{
+    background: white;
+    border: 1px solid rgba(5, 135, 27, 0.956);
+    border-radius: 8px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
+    text-align: left;
+}
+
+.cardViaggio h2{
+    font-size: 22px;
+    margin-top: 0;
+}

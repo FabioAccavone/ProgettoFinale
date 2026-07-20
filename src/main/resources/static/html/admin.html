@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="../css/gestioneAdmin_style.css">
+
+    
 </head>
 <body>
-    
+
 
     <div id="navbarAuthenticated"></div>
 
@@ -20,7 +24,7 @@
             <input type="text" id="luogo" placeholder="Luogo" required>
             <input type="date" id="dataPartenza" required>
             <input type="date" id="dataRitorno" required>
-            
+
             <select id="formula">
 
                     <option value="">Seleziona formula</option>
@@ -40,16 +44,23 @@
             <input type="number" id="costo" placeholder="Costo" step="0.01" required>
             <input type="number" id="postiDisponibili" placeholder="Posti disponibili" required>
 
-            <input type="button" id="creaViaggio" value="Aggiungi viaggio" onclick="aggiungiViaggio()">
-            <input type="button" id="modificaViaggio" value="Modifica viaggio" onclick="modificaViaggio()">
-            <input type="button" id="cancellaViaggio" value="Elimina viaggio" onclick="cancellaViaggio()">
+            <input type="button" id="btnSalvaViaggio" value="Aggiungi viaggio" onclick="crea()">
+            <input type="button" id="btnAnnullaModifica" value="Annulla modifica" onclick="annullaModifica()" style="display:none;">
         </form>
+
+        <hr>
+
+        <h2>Viaggi esistenti</h2>
+
+        <section id="elencoViaggiAdmin">
+            <!-- generato dinamicamente da adminViaggi.js -->
+        </section>
     </div>
 
     <script src="../js/navbarAuth.js"></script>
-    <script src="../js/creaViaggio.js"></script>
-    <script src="../js/modificaViaggio.js"></script>
-    <script src="../js/cancellaViaggio.js"></script>
+    <script src="../js/gestioneAdmin.js"></script>
     
+    
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-function cancellaViaggio(){
+function cancella(){
 
     fetch("http://localhost:8080/viaggi/{id}", {
         method: "DELETE",

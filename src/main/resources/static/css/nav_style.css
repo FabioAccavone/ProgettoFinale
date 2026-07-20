@@ -1,0 +1,69 @@
+nav{
+    padding: 10px 0;
+}
+
+.nav-links{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+input[value="Logout"]{
+    margin-left:auto;
+}
+
+.nav-links li{
+    margin: 0 15px;
+}
+
+.nav-links a{
+    color: rgba(5, 135, 27, 0.956);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.nav-links a:hover{
+    color: #043797;
+}
+
+input[value="Logout"]{
+    padding: 12px 20px;
+    background: white;
+    color: rgba(5, 135, 27, 0.956);
+    border: 1px solid red;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[value="Logout"]:hover{
+    background: red;
+    color: white;
+}
+
+.btnModifica,
+.btnCancella{
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btnModifica{
+    background: rgba(5, 135, 27, 0.956);
+}
+.btnModifica:hover{
+    background: #044927;
+}
+
+.btnCancella{
+    background: #b30000;
+}
+.btnCancella:hover{
+    background: #800000;
+}
+

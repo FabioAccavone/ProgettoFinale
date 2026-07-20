@@ -47,7 +47,6 @@ function mostraViaggiAdmin(listaViaggi){
         card.className = "cardViaggio";
         card.innerHTML = `
             <h2>${viaggio.luogo}</h2>
-            <p><strong>Codice:</strong> ${viaggio.id}</p>
             <p><strong>Partenza:</strong> ${viaggio.dataPartenza}</p>
             <p><strong>Ritorno:</strong> ${viaggio.dataRitorno}</p>
             <p><strong>Formula:</strong> ${formattaFormula(viaggio.formula)}</p>

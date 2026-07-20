@@ -1,4 +1,4 @@
-function modificaViaggio(){
+function modifica(){
 
     const codice = document.getElementById("codiceViaggio").value
     const luogo = document.getElementById("luogo").value
@@ -9,7 +9,6 @@ function modificaViaggio(){
     const postiDisponibili = document.getElementById("postiDisponibili").value
 
     const viaggioDaModificare = {
-        codice: codice,
         luogo: luogo,
         dataPartenza: dataPartenza,
         dataRitorno: dataRitorno,
@@ -18,7 +17,7 @@ function modificaViaggio(){
         postiDisponibili: postiDisponibili
     }
 
-    fetch("http://localhost:8080/viaggi{id}", {
+    fetch("http://localhost:8080/viaggi/" + codice, {
         method:"PUT",
         headers:{
             'Authorization': 'Bearer ' + localStorage.getItem("token"), 
