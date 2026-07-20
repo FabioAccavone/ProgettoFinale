@@ -35,5 +35,23 @@ function login(){
                 window.location.href = "ricercaViaggi.html";
             }
         })
-    .catch(error=>alert(error.message))
+    .catch(errore => {
+
+        Toastify({
+            text: errore.message,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #dc3545, #ff6b6b)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
+
+    })
 }

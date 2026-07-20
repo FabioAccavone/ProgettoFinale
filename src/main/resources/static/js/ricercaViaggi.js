@@ -1,10 +1,27 @@
 const API = "http://localhost:8080";
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
+
+    Toastify({
+        text: "Benvenuto " + localStorage.getItem("username"),
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        close: true,
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(135deg, #28a745, #20c997)",
+            borderRadius: "10px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+            fontSize: "16px",
+            fontWeight: "500"
+        }
+    }).showToast();
+
 
     visualizzaTutti();
 
-};
+});
 
 //====================================
 // CAMBIO FILTRO
