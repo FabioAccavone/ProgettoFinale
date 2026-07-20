@@ -13,8 +13,8 @@ section{
 .ricerca{
     background: white;
     padding: 25px;
-    max-width: 500px;
-    margin: 0 auto;
+    
+    padding-bottom: 30px;
     box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
 }
 
@@ -116,5 +116,30 @@ hr{
     margin: 30px auto;
     box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
 }
+
+.contenitoreImmagine{
+    background-image: url('../img/sfondo_home.jpg');
+    background-size: cover;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.ricerca-controls{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ricerca-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    
+}
+
+
 
 

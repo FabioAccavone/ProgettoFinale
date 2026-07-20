@@ -8,15 +8,10 @@ nav{
     padding: 0;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
-input[value="Logout"]{
-    margin-left:auto;
-}
 
-.nav-links li{
-    margin: 0 15px;
-}
 
 .nav-links a{
     color: rgba(5, 135, 27, 0.956);
@@ -26,16 +21,19 @@ input[value="Logout"]{
 }
 
 .nav-links a:hover{
-    color: #043797;
+    color: gold;
 }
 
 input[value="Logout"]{
     padding: 12px 20px;
     background: white;
     color: rgba(5, 135, 27, 0.956);
-    border: 1px solid red;
+    border: 3px solid red;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
+    margin-left: auto;
+    font-weight: bold;
 }
 
 input[value="Logout"]:hover{

@@ -1,0 +1,67 @@
+main{
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1{
+    color: rgba(5, 135, 27, 0.956);
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+
+#contenitorePrenotazioni{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cardPrenotazione{
+    background: white;
+    border: 1px solid rgba(5, 135, 27, 0.956);
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
+}
+
+.cardPrenotazione h2{
+    color: rgba(5, 135, 27, 0.956);
+    font-size: 22px;
+    margin-top: 0;
+    text-align: left;
+}
+
+.cardPrenotazione p{
+    margin: 8px 0;
+}
+
+.cardPrenotazione hr{
+    border: none;
+    border-top: 1px solid rgba(5, 135, 27, 0.3);
+    margin: 12px 0;
+}
+
+#contenitorePrenotazioni h2{
+    color: rgba(5, 135, 27, 0.956);
+    width: 100%;
+}
+
+#contenitoreImmagine{
+    background-image: url('../img/sfondo_home.jpg');
+    background-size: cover;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-bottom: 40px;
+    box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
+}
+
+hr{
+    border: 1px solid rgba(5, 135, 27, 0.956);
+    margin: 30px auto;
+    box-shadow: 0 2px 6px rgba(5, 135, 27, 0.956);
+}
