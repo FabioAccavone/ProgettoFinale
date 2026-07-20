@@ -6,6 +6,7 @@ import java.util.List;
 import com.accenture.ProgettoFinale.enumeration.FormulaViaggio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -42,7 +43,11 @@ public class Viaggio {
     @Column(name = "posti_disponibili")
     private int postiDisponibili;
 
-    @OneToMany(mappedBy = "viaggio")
+    @OneToMany(
+    mappedBy = "viaggio",
+    cascade = CascadeType.ALL,
+    orphanRemoval = true
+)
     @JsonIgnore
     private List<Prenotazione> prenotazioni;
     

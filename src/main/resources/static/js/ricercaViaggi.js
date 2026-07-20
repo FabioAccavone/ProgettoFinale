@@ -192,9 +192,9 @@ function mostraViaggi(listaViaggi) {
 
             <p><strong>Codice:</strong> ${viaggio.id}</p>
 
-            <p><strong>Partenza:</strong> ${viaggio.dataPartenza}</p>
+            <p><strong>Partenza:</strong> ${formattaData(viaggio.dataPartenza)}</p>
 
-            <p><strong>Ritorno:</strong> ${viaggio.dataRitorno}</p>
+            <p><strong>Ritorno:</strong> ${formattaData(viaggio.dataRitorno)}</p>
 
             <p><strong>Formula:</strong> ${formattaFormula(viaggio.formula)}</p>
 
@@ -235,6 +235,16 @@ function formattaFormula(formula) {
         .toLowerCase()
         .replaceAll("_", " ")
         .replace(/\b\w/g, c => c.toUpperCase());
+
+}
+
+function formattaData(data) {
+
+    if (!data) return "";
+
+    const parti = data.split("-");
+
+    return `${parti[2]}/${parti[1]}/${parti[0]}`;
 
 }
 
