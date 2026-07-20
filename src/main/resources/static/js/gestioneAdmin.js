@@ -5,6 +5,22 @@ const API = "http://localhost:8080";
 //====================================
 
 window.onload = function(){
+
+    Toastify({
+        text: "Benvenuto " + localStorage.getItem("username"),
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        close: true,
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(135deg, #28a745, #20c997)",
+            borderRadius: "10px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+            fontSize: "16px",
+            fontWeight: "500"
+        }
+    }).showToast();
     caricaViaggi();
 }
 
@@ -148,11 +164,44 @@ function modifica(){
         return res.json();
     })
     .then(viaggio => {
-        alert("Viaggio modificato con successo!");
+
+        Toastify({
+            text: "Viaggio modificato con successo!",
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #28a745, #20c997)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
         annullaModifica();
         caricaViaggi();
     })
-    .catch(errore => alert("Errore: " + errore.message))
+    .catch(errore => {
+
+        Toastify({
+            text: "Errore: " + errore.message,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #dc3545, #ff6b6b)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
+
+    })
 }
 
 //====================================
@@ -206,11 +255,44 @@ function crea(){
         return res.json();
     })
     .then(viaggio => {
-        alert("Viaggio creato con successo!");
+
+        Toastify({
+            text: "Viaggio inserito con successo!",
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #28a745, #20c997)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
         document.getElementById("formViaggio").reset();
         caricaViaggi();
     })
-    .catch(errore => alert("Errore: " + errore.message))
+    .catch(errore => {
+
+        Toastify({
+            text: "Errore: " + errore.message,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #dc3545, #ff6b6b)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
+
+    })
 }
 
 //====================================
@@ -235,8 +317,40 @@ function cancellaViaggio(idViaggio){
         return res.text();
     })
     .then(() => {
-        alert("Viaggio cancellato con successo!");
+        Toastify({
+            text: "Viaggio cancellato con successo!",
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #28a745, #20c997)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
         caricaViaggi();
     })
-    .catch(errore => alert("Errore: " + errore.message))
+    .catch(errore => {
+
+        Toastify({
+            text: "Errore: " + errore.message,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(135deg, #dc3545, #ff6b6b)",
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                fontSize: "16px",
+                fontWeight: "500"
+            }
+        }).showToast();
+
+    })
 }

@@ -23,7 +23,6 @@ function login(){
         return res.json();
     })
     .then(data=>{
-            alert("Login effettuato!")
             localStorage.setItem("token", data.jwt)
             localStorage.setItem("ruolo", data.ruolo) 
             localStorage.setItem("username", data.username)
