@@ -14,4 +14,6 @@ public class PrenotazioneDTO {
 
     @Positive(message = "L'id del user deve essere positivo")
     private long userId;
+
+    private Double costoTotale;
 }

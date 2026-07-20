@@ -93,6 +93,8 @@ function mostraPrenotazioni(listaPrenotazioni) {
 
             <p><strong>Costo:</strong> € ${viaggio.costo}</p>
 
+            <p><strong>Costo Totale:</strong> € ${prenotazione.costoTotale}</p>
+
         `;
 
         contenitore.appendChild(card);

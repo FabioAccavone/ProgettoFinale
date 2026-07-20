@@ -35,4 +35,5 @@ public class Prenotazione {
     @JoinColumn(name = "user_id")
     private User user;
     
+    private Double costoTotale;
 }

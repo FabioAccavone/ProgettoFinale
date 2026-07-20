@@ -48,6 +48,7 @@ public class PrenotazioneService {
         prenotazione.setNumPersone(prenotazioneDTO.getNumPersone());
         prenotazione.setViaggio(viaggio);
         prenotazione.setUser(user);
+        prenotazione.setCostoTotale(viaggio.getCosto() * prenotazione.getNumPersone());
 
         return prenotazioneRepo.save(prenotazione);
     }
