@@ -1,12 +1,13 @@
 package com.accenture.ProgettoFinale.dto;
 
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 @Data
 public class PrenotazioneDTO {
 
-    @Positive(message = "Il numero di persone che prenotano un viaggio non possono essere negative")
+    @PositiveOrZero(message = "Il numero di persone che prenotano un viaggio non possono essere negative")
     private int numPersone;
 
     @Positive(message = "L'id del viaggio deve essere positivo")
