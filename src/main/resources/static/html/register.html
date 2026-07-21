@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTRAZIONE</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link rel="stylesheet" href="../css/auth_style.css">
 
 </head>
@@ -16,17 +18,17 @@
 
         <form id="registerForm">
 
-            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="nome" placeholder="Nome" required oninput="checkNome(this)">
 
-            <input type="text" id="cognome" placeholder="Cognome" required>
+            <input type="text" id="cognome" placeholder="Cognome" required oninput="checkCognome(this)">
 
             <input type="text" id="indirizzo" placeholder="Indirizzo" required>
 
-            <input type="text" id="cf" placeholder="Codice Fiscale" required>
+            <input type="text" id="cf" placeholder="Codice Fiscale" required oninput="checkCF(this)">
 
             <input type="text" id="username" placeholder="Username" required>
 
-            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required oninput="checkPassword(this)">
 
             <input type="button" value="Registrati" onclick="registrati()"> 
 
@@ -40,6 +42,8 @@
         <input type="button" value="Torna alla Home" onclick="window.location.href='home.html'">
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script src="../js/register.js"></script>
     

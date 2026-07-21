@@ -93,7 +93,7 @@ function mostraPrenotazioni(listaPrenotazioni) {
 
             <p><strong>Costo:</strong> € ${viaggio.costo}</p>
 
-            <p><strong>Costo Totale:</strong> € ${prenotazione.costoTotale.toFixed(2)}</p>
+            <p><strong>Costo Totale:</strong> € ${prenotazione.costoTotale}</p>
 
         `;
 
